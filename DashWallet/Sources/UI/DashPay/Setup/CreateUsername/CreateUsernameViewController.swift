@@ -295,10 +295,6 @@ struct CreateUsernameView: View {
         .sheet(isPresented: $showContestedInfo) {
             let dialog = BottomSheet(showBackButton: Binding<Bool>.constant(false)) {
                 TextIntro(
-                    buttonLabel: NSLocalizedString("OK", comment: ""),
-                    action: {
-                        showContestedInfo = false
-                    },
                     inProgress: .constant(false)
                 ) {
                     FeatureTopText(
@@ -310,7 +306,7 @@ struct CreateUsernameView: View {
             }
             
             if #available(iOS 16.0, *) {
-                dialog.presentationDetents([.height(500)])
+                dialog.presentationDetents([.height(400)])
             } else {
                 dialog
             }
